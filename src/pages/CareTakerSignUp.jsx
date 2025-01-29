@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 const CareTakerSignUp = () => {
   const [formData, setFormData] = useState({
@@ -35,18 +35,21 @@ const CareTakerSignUp = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/caretaker/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          number: formData.number,
-          password: formData.password,
-        }),
-      });
+      const response = await fetch(
+        "https://outing-backend-83sg.onrender.com/caretaker/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            number: formData.number,
+            password: formData.password,
+          }),
+        }
+      );
 
       const data = await response.json();
 
@@ -73,7 +76,10 @@ const CareTakerSignUp = () => {
             Caretaker Sign-Up
           </h2>
 
-          <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="name"
+            className="block text-gray-700 font-medium mb-2"
+          >
             Name
           </label>
           <input
@@ -86,7 +92,10 @@ const CareTakerSignUp = () => {
             required
           />
 
-          <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="email"
+            className="block text-gray-700 font-medium mb-2"
+          >
             Email
           </label>
           <input
@@ -99,7 +108,10 @@ const CareTakerSignUp = () => {
             required
           />
 
-          <label htmlFor="number" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="number"
+            className="block text-gray-700 font-medium mb-2"
+          >
             Number
           </label>
           <input
@@ -112,7 +124,10 @@ const CareTakerSignUp = () => {
             required
           />
 
-          <label htmlFor="password" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="password"
+            className="block text-gray-700 font-medium mb-2"
+          >
             Password
           </label>
           <input
@@ -151,9 +166,7 @@ const CareTakerSignUp = () => {
           <p className="text-center text-gray-500 mt-4">
             Already have an account?{" "}
             <Link to="/">
-              <a className="text-black underline hover:text-gray-700">
-                Login
-              </a>
+              <a className="text-black underline hover:text-gray-700">Login</a>
             </Link>
           </p>
         </form>

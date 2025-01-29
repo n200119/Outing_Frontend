@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 const StudentSignUp = () => {
   const [formData, setFormData] = useState({
@@ -34,17 +34,20 @@ const StudentSignUp = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/student/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
+      const response = await fetch(
+        "https://outing-backend-83sg.onrender.com/student/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            password: formData.password,
+          }),
+        }
+      );
 
       const data = await response.json();
 
@@ -71,7 +74,10 @@ const StudentSignUp = () => {
             Student Sign-Up
           </h2>
 
-          <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="name"
+            className="block text-gray-700 font-medium mb-2"
+          >
             Name
           </label>
           <input
@@ -84,7 +90,10 @@ const StudentSignUp = () => {
             required
           />
 
-          <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="email"
+            className="block text-gray-700 font-medium mb-2"
+          >
             Email
           </label>
           <input
@@ -97,7 +106,10 @@ const StudentSignUp = () => {
             required
           />
 
-          <label htmlFor="password" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="password"
+            className="block text-gray-700 font-medium mb-2"
+          >
             Password
           </label>
           <input
@@ -136,9 +148,7 @@ const StudentSignUp = () => {
           <p className="text-center text-gray-500 mt-4">
             Already have an account?{" "}
             <Link to="/">
-              <a className="text-black underline hover:text-gray-700">
-                Login
-              </a>
+              <a className="text-black underline hover:text-gray-700">Login</a>
             </Link>
           </p>
         </form>

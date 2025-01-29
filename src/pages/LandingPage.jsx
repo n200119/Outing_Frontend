@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import myImage from "../assets/rguktlogo.png"
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ const LandingPage = () => {
       {/* Header with University Name and Logo */}
       <div className="absolute top-6 flex items-center justify-between w-full px-8">
         <img
-          src="C:\Users\n2001\Desktop\outing\frontend\dashboard\src\assets\rguktlogo.png"
+          src={myImage}
           alt="University Logo"
           className="h-16 w-16"
         />
@@ -19,6 +20,7 @@ const LandingPage = () => {
         <button
           onClick={() => {
             localStorage.removeItem("studentLoginToken");
+            localStorage.removeItem("studentName");
             navigate("/");
           }}
           className="bg-red-500 text-white px-4 py-2 rounded shadow-lg hover:bg-red-600"

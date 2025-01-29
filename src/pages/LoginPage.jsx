@@ -26,7 +26,7 @@ const LoginPage = () => {
       setError("");
       try {
         const response = await fetch(
-          `http://localhost:3000/${activeTab}/login`,
+          `https://outing-backend-83sg.onrender.com/${activeTab}/login`,
           {
             method: "POST",
             headers: {
@@ -46,15 +46,13 @@ const LoginPage = () => {
           setEmail("");
           setPassword("");
           localStorage.setItem(`${activeTab}LoginToken`, data.token);
+          localStorage.setItem("studentName", data.name);
           setTimeout(() => {
-            if(activeTab === "student"){
+            if (activeTab === "student") {
               navigate("/welcome");
-            }
-            else
-            {
+            } else {
               navigate("/caretakerwelcome");
-
-            }      
+            }
           }, 2000);
         } else {
           toast.error("Login failed: " + (data.message || "An error occurred"));
